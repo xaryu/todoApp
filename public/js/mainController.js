@@ -30,6 +30,7 @@ function TodoCtrl($scope, $http) {
             $http.post('/todo', {
                 text: $scope.todoText,
                 done: false,
+                UserId: 2
             }).success(function (data) {
                 $scope.todos.push(data);
                 $scope.todoText = '';
@@ -79,6 +80,14 @@ function TodoCtrl($scope, $http) {
         return count;
     };
 
+    $scope.editAddedUser = function (todo, user) {
+        $http.put('/todo/' + todo.id + '/user', {userId: user.id})
+            .success(function (data) {
+                console.log(data)
+            }).catch(function (err) {
+            console.log(err);
+        })
+    }
     $scope.archive = function () {
         var oldTodos = $scope.todos;
         $scope.todos = [];
