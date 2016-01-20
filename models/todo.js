@@ -11,7 +11,7 @@ module.exports = function(sequelize, DataTypes) {
   }, {
     classMethods: {
       associate: function(models) {
-        Todo.belongsTo(models.User);
+        Todo.belongsTo(models.User, {as: "User"});
       }
     }
   });

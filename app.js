@@ -31,6 +31,7 @@ app.get('/', routes.index);
 app.get('/todo', routes.getTodos);
 app.get('/users', user.getUsers);
 app.post('/todo', routes.saveTodos);
+app.put('/todo/:id/user', routes.saveTodosWithUser);
 app.post('/users', user.addUser);
 app.get('/todo/:id', routes.getSingleTodo);
 app.get('/users/:id', user.getSingleUser);

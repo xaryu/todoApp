@@ -16,6 +16,18 @@
                         <button type="button" ng-click="toggleEditInput(todo)" class="btn btn-default">
                             <i class="glyphicon glyphicon-pencil"></i>
                         </button>
+                        <!-- Single button -->
+                        <div class="btn-group">
+                            <button type="button" ng-click="" class="btn btn-default dropdown-toggle"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Link User <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li ng-repeat="user in users">
+                                    <span ng-click="editAddedUser(todo,user)">{{user.name}}</span>
+                                </li>
+                            </ul>
+                        </div>
                     </li>
                     <div class="input-group" ng-if="openInputField">
                         <input type="text" class="form-control" ng-model="editedTextField"
