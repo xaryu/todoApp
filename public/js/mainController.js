@@ -31,7 +31,6 @@ function TodoCtrl($scope, $http) {
                 text: $scope.todoText,
                 done: false,
             }).success(function (data) {
-                console.log(data, $scope.todos);
                 $scope.todos.push(data);
                 $scope.todoText = '';
             }).error(function (data) {
@@ -46,7 +45,6 @@ function TodoCtrl($scope, $http) {
             $http.post('/users', {
                 text: $scope.userName
             }).success(function (data) {
-                console.log(data, $scope.todos);
                 $scope.users.push(data);
                 $scope.userName = '';
             }).error(function (data) {
@@ -59,7 +57,6 @@ function TodoCtrl($scope, $http) {
     $scope.toggleEditInput = function (todo) {
         $scope.openInputField = !$scope.openInputField;
         $scope.todoId = todo.id;
-        console.log($scope.todoId);
     };
     $scope.editTodo = function (todo) {
         if (this.editedTextField !== '') {
