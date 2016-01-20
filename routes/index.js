@@ -35,7 +35,6 @@ exports.getSingleTodo = function (req,res) {
 }
 
 exports.updateTodos = function (req, res) {
-    console.log('req',req);
     models.Todo.find({
         where: {
             id: req.params.id
