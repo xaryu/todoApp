@@ -18,13 +18,13 @@
                         </button>
                         <!-- Single button -->
                         <div class="btn-group">
-                            <button type="button" ng-click="" class="btn btn-default dropdown-toggle"
+                            <button type="button" ng-class="linkBtn" ng-click="" class="btn btn-default dropdown-toggle"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Link User <span class="caret"></span>
                             </button>
                             <ul class="dropdown-menu">
-                                <li ng-repeat="user in users">
-                                    <span ng-click="editAddedUser(todo,user)">{{user.name}}</span>
+                                <li class="listItems" ng-repeat="user in users">
+                                    <div ng-click="editAddedUser(todo,user)">{{user.name}}</div>
                                 </li>
                             </ul>
                         </div>
@@ -37,8 +37,8 @@
                       </span>
                     </div>
                 </ul>
-                <form name="todoForm" ng-submit="addTodo()">
-                    <div class="col-md-12">
+                <form name="todoForm" class="todoForm" ng-submit="addTodo()">
+                    <div class="col-md-6 col-sm-6">
                         <div class="input-group input-group-lg">
                             <input class="form-control" type="text" ng-model="todoText"
                                    size="30" placeholder="add new todo here"/>
@@ -53,7 +53,14 @@
         <div class="col-md-6 col-sm-6 col-lg-6">
             <div class="userContainer">
                 <h1>Users List</h1>
-                <form ng-submit="addUser()">
+
+                <li ng-repeat="user in users">
+                    <span class="done-{{todo.done}}">{{user.name}}</span>
+                    <button type="button" ng-click="deleteUser(user)" class="btn btn-default">
+                        <i class="glyphicon glyphicon-minus-sign"></i>
+                    </button>
+                </li>
+                <form ng-submit="addUser()" class="userForm">
                     <div class="col-md-12">
                         <div class="input-group input-group-lg">
                             <input class="form-control" type="text" ng-model="userName"
@@ -64,15 +71,16 @@
                         </div>
                     </div>
                 </form>
-                <li ng-repeat="user in users">
-                    <span class="done-{{todo.done}}">{{user.name}}</span>
-                    <button type="button" ng-click="deleteUser(user)" class="btn btn-default">
-                        <i class="glyphicon glyphicon-minus-sign"></i>
-                    </button>
-                </li>
             </div>
         </div>
     </div>
+</div>
+<div class="jumbotron">
+    <ul class="unstyled">
+        <li ng-repeat="todo in todos">
+            <span class="done-{{todo.done}}">{{todo.User.name}} HAS TO {{todo.text}}</span>
+        </li>
+    </ul>
 </div>
 <div class="container">
     <% include footer %>

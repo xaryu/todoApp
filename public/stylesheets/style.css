@@ -9,3 +9,24 @@ a {
 ul {
     list-style-type: none;
 }
+
+.userForm {
+    position: fixed;
+    bottom:20px;
+}
+.todoForm {
+    position: fixed;
+    bottom:20px;
+}
+
+.linkBtn, .listItems {
+    cursor: pointer;
+}
+
+.listItems:hover {
+    background-color: gray;
+}
+
+.listItems {
+    padding-left:10px;
+}

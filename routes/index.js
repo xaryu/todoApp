@@ -16,7 +16,6 @@ exports.saveTodos = function (req, res) {
     models.Todo.create({
         text: req.body.text,
         done: req.body.done,
-        //UserId: req.body.UserId
     }).then(function (todos) {
         console.log(todos);
         res.json(todos);
